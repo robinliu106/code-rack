@@ -21,7 +21,11 @@ const expenseTwo = store.dispatch(
     addExpense({ description: "Gas bill", amount: 300, createdAt: 1000 })
 );
 
-store.dispatch(setTextFilter("bill"));
+setTimeout(() => {
+    store.dispatch(setTextFilter("water"));
+}, 3000);
+
+store.dispatch(setTextFilter("rent"));
 
 store.subscribe(() => {
     const state = store.getState();
