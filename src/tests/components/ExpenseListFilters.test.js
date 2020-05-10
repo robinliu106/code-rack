@@ -25,12 +25,12 @@ beforeEach(() => {
 });
 
 test("Should render ExpenseListFilters correctly", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should render ExpenseListFilters with alt data correctly", () => {
     wrapper.setProps({ filters: altFilters });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should handle text change", () => {

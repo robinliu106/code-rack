@@ -14,7 +14,7 @@ beforeEach(() => {
 });
 
 test("Should render AddExpensePage correctly", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should handle onSubmit", () => {

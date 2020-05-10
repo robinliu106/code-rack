@@ -20,7 +20,7 @@ beforeEach(() => {
 });
 
 test("Should render EditExpensePage", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should handle editExpense", () => {

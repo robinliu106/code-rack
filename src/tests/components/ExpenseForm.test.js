@@ -6,12 +6,12 @@ import moment from "moment";
 
 test("Should render ExpenseForm correctly", () => {
     const wrapper = shallow(<ExpenseForm />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should render ExpenseForm with expense data", () => {
     const wrapper = shallow(<ExpenseForm expense={expenses[1]} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should render error for invalid form submission", () => {
@@ -20,7 +20,7 @@ test("Should render error for invalid form submission", () => {
         preventDefault: () => {},
     });
     expect(wrapper.state("error").length).toBeGreaterThan(0);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.debug()).toMatchSnapshot();
 });
 
 test("Should set description on input change", () => {
