@@ -18,7 +18,7 @@ exports[`Should render ExpenseForm with expense data 1`] = `
 "<div>
   <form onSubmit={[Function]}>
     <input type=\\"text\\" placeholder=\\"Description\\" autoFocus={true} value=\\"rent\\" onChange={[Function]} />
-    <input type=\\"text\\" placeholder=\\"Amount\\" value=\\"3000.95\\" onChange={[Function]} />
+    <input type=\\"text\\" placeholder=\\"Amount\\" value=\\"1095\\" onChange={[Function]} />
     <SingleDatePicker date={{...}} onDateChange={[Function]} focused={false} onFocusChange={[Function]} numberOfMonths={1} isOutsideRange={[Function]} id=\\"date\\" placeholder=\\"Date\\" disabled={false} required={false} readOnly={false} screenReaderInputMessage=\\"\\" showClearDate={false} showDefaultInputIcon={false} inputIconPosition=\\"before\\" customInputIcon={{...}} customCloseIcon={{...}} orientation=\\"horizontal\\" anchorDirection=\\"left\\" openDirection=\\"down\\" horizontalMargin={0} withPortal={false} withFullScreenPortal={false} initialVisibleMonth={{...}} firstDayOfWeek={{...}} keepOpenOnDateSelect={false} reopenPickerOnClearDate={false} renderCalendarInfo={{...}} hideKeyboardShortcutsPanel={false} daySize={39} isRTL={false} navPrev={{...}} navNext={{...}} onPrevMonthClick={[Function]} onNextMonthClick={[Function]} onClose={[Function]} renderMonth={{...}} renderDay={{...}} enableOutsideDays={false} isDayBlocked={[Function]} isDayHighlighted={[Function]} displayFormat={[Function]} monthFormat=\\"MMMM YYYY\\" weekDayFormat=\\"dd\\" phrases={{...}} />
     <textarea placeholder=\\"Add a note for your expense (optional)\\" value=\\"\\" onChange={[Function]} />
     <button>
