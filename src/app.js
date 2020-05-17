@@ -12,6 +12,7 @@ import getVisibleExpenses from "./selectors/expenses";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
+import "./firebase/firebase";
 
 const store = configureStore();
 
@@ -30,10 +31,10 @@ store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 // store.subscribe(() => {
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
+// console.log(visibleExpenses);
 // });
 
-console.log(store.getState());
+// console.log(store.getState());
 
 const jsx = (
     <Provider store={store}>
