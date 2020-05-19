@@ -5,11 +5,24 @@ import {
     addExpense,
     editExpense,
     removeExpense,
+    setExpenses,
+    startSetExpenses,
 } from "../../actions/expenses";
 import expenses from "../fixtures/expenses";
 import database from "../../firebase/firebase";
 
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+    const expensesData = {};
+    expenses.forEach(({ id, description, note, amount, createdAt }) => {
+        expensesData[id] = { description, note, amount, createdAt };
+    });
+    database
+        .ref("expenses")
+        .set(expensesData)
+        .then(() => done()); //use done to make sure test cases after the data is loaded in firebase
+});
 
 test("Should setup add expense action object w/ provided values", () => {
     const action = addExpense(expenses[2]);
@@ -102,5 +115,24 @@ test("Should setup editExpense action object", () => {
         updates: {
             description: "new description",
         },
+    });
+});
+
+test("Should setup set expense action object with data", () => {
+    const action = setExpenses(expenses);
+    expect(action).toEqual({ type: "SET_EXPENSES", expenses });
+});
+
+test("Should fetch the expenses from firebase", (done) => {
+    //add done to tell jest not to consider it a pass/fail until is done is called
+    const store = createMockStore({});
+    store.dispatch(startSetExpenses()).then(() => {
+        //.then to wait for data to actually be fetched
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: "SET_EXPENSES",
+            expenses,
+        });
+        done();
     });
 });
