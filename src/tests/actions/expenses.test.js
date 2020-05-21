@@ -4,7 +4,9 @@ import {
     startAddExpense,
     addExpense,
     editExpense,
+    startEditExpense,
     removeExpense,
+    startRemoveExpense,
     setExpenses,
     startSetExpenses,
 } from "../../actions/expenses";
@@ -105,6 +107,26 @@ test("Should setup removeExpense action object", () => {
 });
 //objects and array cannot be compared with === , must use toEqual
 
+test("Should remove expense from firebase", (done) => {
+    //add done variable for async tests
+    const store = createMockStore({});
+    const id = expenses[2].id;
+    store
+        .dispatch(startRemoveExpense({ id }))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: "REMOVE_EXPENSE",
+                id,
+            });
+            return database.ref(`expenses/${id}`).once("value");
+        })
+        .then((snapshot) => {
+            expect(snapshot.val()).toBeFalsy();
+            done();
+        });
+});
+
 test("Should setup editExpense action object", () => {
     const action = editExpense("321cba", {
         description: "new description",
@@ -116,6 +138,28 @@ test("Should setup editExpense action object", () => {
             description: "new description",
         },
     });
+});
+
+test("Should edit expense from firebase", (done) => {
+    const store = createMockStore({});
+    const id = expenses[0].id;
+    const updates = { amount: 21045 };
+
+    store
+        .dispatch(startEditExpense(id, updates))
+        .then(() => {
+            const actions = store.getActions();
+            expect(actions[0]).toEqual({
+                type: "EDIT_EXPENSE",
+                id,
+                updates,
+            });
+            return database.ref(`expenses/${id}`).once("value");
+        })
+        .then((snapshot) => {
+            expect(snapshot.val().amount).toBe(updates.amount);
+            done();
+        });
 });
 
 test("Should setup set expense action object with data", () => {
