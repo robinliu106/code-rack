@@ -8,18 +8,21 @@ import HelpPage from "../components/HelpPage";
 import NotFoundPage from "../components/NotFoundPage";
 import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
+import PrivateRoute from "./PrivateRoute";
 
-export const history = createHistory();
+export const history = createHistory(); //use <Router> to pass in custom history instead of <BrowserRouter> which uses browser history by default
 
 const AppRouter = () => (
     <Router history={history}>
         <div>
-            <Header />
             <Switch>
                 <Route path="/" component={LoginPage} exact={true} />
-                <Route path="/dashboard" component={ExpenseDashboardPage} />
-                <Route path="/create" component={AddExpensePage} />
-                <Route path="/edit/:id" component={EditExpensePage} />
+                <PrivateRoute
+                    path="/dashboard"
+                    component={ExpenseDashboardPage}
+                />
+                <PrivateRoute path="/create" component={AddExpensePage} />
+                <PrivateRoute path="/edit/:id" component={EditExpensePage} />
                 <Route path="/help" component={HelpPage} />
                 <Route component={NotFoundPage} />
             </Switch>
@@ -28,6 +31,3 @@ const AppRouter = () => (
 );
 
 export default AppRouter;
-
-//<BrowserRouter> uses browser history by default
-//use <Router> to pass in custom history
