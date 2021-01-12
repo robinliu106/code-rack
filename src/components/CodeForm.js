@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import AceEditor from "react-ace";
+import "brace/mode/javascript";
+import "brace/theme/monokai";
 
 const now = moment();
 
@@ -14,8 +17,9 @@ const CodeForm = (props) => {
     const onTitleChange = (e) => {
         setTitle(e.target.value);
     };
-    const onNoteChange = (e) => {
-        setNote(e.target.value);
+
+    const onEditorChange = (newValue) => {
+        setNote(newValue);
     };
 
     const onDateChange = (createdAt) => {
@@ -61,7 +65,15 @@ const CodeForm = (props) => {
                 numberOfMonths={1}
                 isOutsideRange={() => false}
             />
-            <textarea className="textarea" value={note} onChange={onNoteChange}></textarea>
+            <div>
+                <AceEditor
+                    className="ace-editor"
+                    mode="javascript"
+                    theme="monokai"
+                    value={note}
+                    onChange={onEditorChange}
+                />
+            </div>
             <div>
                 <button className="button">Save Code</button>
             </div>
@@ -70,3 +82,5 @@ const CodeForm = (props) => {
 };
 
 export default CodeForm;
+
+//            <textarea className="textarea" value={note} onChange={onNoteChange}></textarea>
