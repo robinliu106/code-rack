@@ -1,8 +1,6 @@
 # Code Rack: Save reusable components
 
-https://react-expensify-rliu.herokuapp.com
-
-Dashboard
+Login with Google
 ![alt text](https://user-images.githubusercontent.com/10891311/85232621-4d50d780-b3ce-11ea-80f6-fdc412777a99.png)
 
 Edit Code Page
