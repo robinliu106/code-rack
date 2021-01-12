@@ -10,7 +10,7 @@ const CodeListItem = ({ id, description, note, createdAt }) => (
             <span className="list-item__sub-title">{moment(createdAt).format("ddd, MMM YYYY")}</span>
         </div>
         <div>
-            <h3 className="list-item__data">{note}</h3>
+            <h3 className="list-item__data">{`${note.slice(0, 20)}...`}</h3>
         </div>
     </Link>
 );

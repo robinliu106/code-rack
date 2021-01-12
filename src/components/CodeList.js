@@ -8,7 +8,6 @@ export const CodeList = (props) => (
         <div className="list-header">
             <div className="show-for-mobile">Snippets</div>
             <div className="show-for-desktop">Snippet</div>
-            <div className="show-for-desktop">Description</div>
         </div>
         <div className="list-body">
             {props.expenses.length === 0 ? (

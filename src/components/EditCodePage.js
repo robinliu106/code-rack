@@ -6,7 +6,7 @@ import { startEditSnippet, startRemoveSnippet } from "../actions/expenses";
 const EditCodePage = (props) => {
     const onSubmit = (expense) => {
         props.startEditSnippet(props.expense.id, expense);
-        props.history.push("/"); //has access to history api because history is passed into the component because the component is registered to a route
+        props.history.push("/");
     };
     const onRemove = () => {
         props.startRemoveSnippet({ id: props.expense.id });
