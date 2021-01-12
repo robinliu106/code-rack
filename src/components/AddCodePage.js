@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import CodeForm from "./CodeForm";
-import { startAddExpense } from "../actions/expenses";
+import { startAddSnippet } from "../actions/expenses";
 
 const AddSnippetPage = (props) => {
     const onSubmit = (expense) => {
-        props.startAddExpense(expense);
+        props.startAddSnippet(expense);
         props.history.push("/"); //redirect to dashboard upon submit
     };
 
@@ -24,7 +24,7 @@ const AddSnippetPage = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense: (expense) => dispatch(startAddExpense(expense)),
+    startAddSnippet: (expense) => dispatch(startAddSnippet(expense)),
 });
 
 export default connect(undefined, mapDispatchToProps)(AddSnippetPage);

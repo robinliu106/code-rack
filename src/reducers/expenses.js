@@ -2,11 +2,11 @@
 const expensesReducerDefaultState = [];
 export default (state = expensesReducerDefaultState, action) => {
     switch (action.type) {
-        case "ADD_EXPENSE":
+        case "ADD_SNIPPET":
             return [...state, action.expense];
-        case "REMOVE_EXPENSE":
+        case "REMOVE_SNIPPET":
             return state.filter(({ id }) => action.id !== id);
-        case "EDIT_EXPENSE":
+        case "EDIT_SNIPPET":
             return state.map((expense) => {
                 if (expense.id === action.id) {
                     return {
@@ -17,7 +17,7 @@ export default (state = expensesReducerDefaultState, action) => {
                     return expense;
                 }
             });
-        case "SET_EXPENSES":
+        case "SET_SNIPPETS":
             return action.expenses;
 
         default:

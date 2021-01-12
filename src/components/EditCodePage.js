@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import CodeForm from "./CodeForm";
-import { startEditExpense, startRemoveExpense } from "../actions/expenses";
+import { startEditSnippet, startRemoveSnippet } from "../actions/expenses";
 
 const EditCodePage = (props) => {
     const onSubmit = (expense) => {
-        props.startEditExpense(props.expense.id, expense);
+        props.startEditSnippet(props.expense.id, expense);
         props.history.push("/"); //has access to history api because history is passed into the component because the component is registered to a route
     };
     const onRemove = () => {
-        props.startRemoveExpense({ id: props.expense.id });
+        props.startRemoveSnippet({ id: props.expense.id });
         props.history.push("/");
     };
 
@@ -36,8 +36,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-    startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
-    startRemoveExpense: (data) => dispatch(startRemoveExpense(data)),
+    startEditSnippet: (id, expense) => dispatch(startEditSnippet(id, expense)),
+    startRemoveSnippet: (data) => dispatch(startRemoveSnippet(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditCodePage);

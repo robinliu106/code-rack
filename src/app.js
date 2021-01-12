@@ -5,7 +5,7 @@ import AppRouter, { history } from "./routers/AppRouter";
 
 import configureStore from "./store/configureStore";
 
-import { startSetExpenses } from "./actions/expenses";
+import { startSetSnippets } from "./actions/expenses";
 import { setTextFilter, sortByDate, sortByAmount } from "./actions/filters";
 import getVisibleExpenses from "./selectors/expenses";
 import { login, logout } from "./actions/auth";
@@ -39,8 +39,8 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(login(user.uid));
         console.log("User logged in");
 
-        store.dispatch(startSetExpenses()).then(() => {
-            //load expenses from firebase
+        store.dispatch(startSetSnippets()).then(() => {
+            //load code from firebase
             renderApp();
             if (history.location.pathname === "/") {
                 //if user is on the login page then render dashboard
