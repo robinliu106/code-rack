@@ -1,13 +1,13 @@
 import React from "react";
-import ExpenseListFilters from "./ExpenseListFilters";
+import CodeListFilters from "./CodeListFilters";
 import CodeSummary from "./CodeSummary";
-import ExpenseList from "./ExpenseList";
+import CodeList from "./CodeList";
 
 const CodeDashboardPage = () => (
     <div>
         <CodeSummary />
-        <ExpenseListFilters />
-        <ExpenseList />
+        <CodeListFilters />
+        <CodeList />
     </div>
 );
 

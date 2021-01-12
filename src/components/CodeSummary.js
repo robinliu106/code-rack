@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import selectCodeSnippets from "../selectors/expenses";
 
-export const ExpensesSummary = ({ codeCount }) => {
+export const CodeSummary = ({ codeCount }) => {
     const snippetWord = codeCount === 1 ? "snippet" : "snippets";
 
     return (
@@ -22,11 +22,11 @@ export const ExpensesSummary = ({ codeCount }) => {
     );
 };
 const mapStateToProps = (state) => {
-    const visibleExpenses = selectCodeSnippets(state.expenses, state.filters);
+    const visibleSnippets = selectCodeSnippets(state.expenses, state.filters);
 
     return {
-        codeCount: visibleExpenses.length,
+        codeCount: visibleSnippets.length,
     };
 };
 
-export default connect(mapStateToProps)(ExpensesSummary);
+export default connect(mapStateToProps)(CodeSummary);

@@ -24,7 +24,7 @@ const EditCodePage = (props) => {
                 <CodeForm expense={props.expense} onSubmit={onSubmit} />
 
                 <button className="button button--secondary" onClick={onRemove}>
-                    Remove Expense
+                    Remove Code
                 </button>
             </div>
         </div>

@@ -1,19 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import CodeListItem from "./CodeListItem";
-import selectExpenses from "../selectors/expenses";
+import selectSnippets from "../selectors/expenses";
 
-export const ExpenseList = (props) => (
+export const CodeList = (props) => (
     <div className="content-container">
         <div className="list-header">
-            <div className="show-for-mobile">Expenses</div>
-            <div className="show-for-desktop">Expense</div>
-            <div className="show-for-desktop">Amount</div>
+            <div className="show-for-mobile">Snippets</div>
+            <div className="show-for-desktop">Snippet</div>
+            <div className="show-for-desktop">Description</div>
         </div>
         <div className="list-body">
             {props.expenses.length === 0 ? (
                 <div className="list-item list-item--message">
-                    <span>No Expenses</span>
+                    <span>No Snippets</span>
                 </div>
             ) : (
                 props.expenses.map((expense) => {
@@ -26,8 +26,8 @@ export const ExpenseList = (props) => (
 
 const mapStateToProps = (state) => {
     return {
-        expenses: selectExpenses(state.expenses, state.filters),
+        expenses: selectSnippets(state.expenses, state.filters),
     };
 };
 
-export default connect(mapStateToProps)(ExpenseList);
+export default connect(mapStateToProps)(CodeList);
