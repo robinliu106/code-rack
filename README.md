@@ -1,7 +1,13 @@
 # Code Rack: Save reusable components
 
 Login with Google
-![alt text](https://user-images.githubusercontent.com/10891311/85232621-4d50d780-b3ce-11ea-80f6-fdc412777a99.png)
+![alt text](https://user-images.githubusercontent.com/10891311/104381675-d494a280-54fa-11eb-92b9-9c305a725b44.png)
 
-Edit Code Page
-![alt text](https://user-images.githubusercontent.com/10891311/85232624-4fb33180-b3ce-11ea-9670-fa6a9f373f1c.png)
+Dashboard
+![alt text](https://user-images.githubusercontent.com/10891311/104381678-d52d3900-54fa-11eb-8708-cf6adc61c404.png)
+
+Filter Code
+![alt text](https://user-images.githubusercontent.com/10891311/104381676-d52d3900-54fa-11eb-8a72-788819398bf7.png)
+
+Edit Code
+![alt text](https://user-images.githubusercontent.com/10891311/104381680-d5c5cf80-54fa-11eb-8b74-e10a47690223.png)
